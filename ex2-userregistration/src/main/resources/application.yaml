@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ex2-userregistration
+mail:
+  host: abc@abc.com
+  port: 25
