@@ -24,3 +24,14 @@ orderService.placeOrder();
 - Use @Service, @Primary to annotate Bean selection
 - You can use @Qualifier to specify which bean to use
 - @Autowired for multiple constructors
+- Use @Lazy to delay bean creation.
+
+### Bean Scopes
+- Singleton scope (default)
+- Prototype scope - `@Scope("prototype")`
+- Request scope
+- Session scope
+
+### Bean lifecycle hooks
+- `@PostConstruct`
+- `@PreDestroy`
