@@ -24,3 +24,4 @@ orderService.placeOrder();
 - Use @Service, @Primary to annotate Bean selection
 - You can use @Qualifier to specify which bean to use
 - @Autowired for multiple constructors
+- Use @Lazy to delay bean creation.
