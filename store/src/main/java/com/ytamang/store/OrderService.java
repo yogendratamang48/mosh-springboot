@@ -1,5 +1,6 @@
 package com.ytamang.store;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -7,7 +8,7 @@ public class OrderService {
     private PaymentService paymentService;
 
     // Constructor
-    public OrderService(PaymentService paymentService) {
+    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 

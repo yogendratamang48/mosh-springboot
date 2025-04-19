@@ -21,3 +21,6 @@ orderService.placeOrder();
 - Let Spring manage the lifecycle of objects
 - Can be done using Annotations. 
 - Annotations - @Component, @Service, @Repository, @Controller
+- Use @Service, @Primary to annotate Bean selection
+- You can use @Qualifier to specify which bean to use
+- @Autowired for multiple constructors
