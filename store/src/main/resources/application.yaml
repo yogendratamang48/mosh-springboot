@@ -4,5 +4,5 @@ spring:
 stripe:
   apiUrl: https://api.stripe.com
   enabled: true
-  timeout-ms: 1000
+  timeout-ms: 6000
   supported-currencies: USD,EUR,GBP
