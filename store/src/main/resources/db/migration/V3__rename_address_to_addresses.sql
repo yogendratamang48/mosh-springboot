@@ -1,0 +1,1 @@
+RENAME TABLE address TO addresses;
