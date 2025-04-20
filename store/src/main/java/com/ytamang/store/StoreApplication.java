@@ -3,6 +3,7 @@ package com.ytamang.store;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.ytamang.store.entities.Address;
 import com.ytamang.store.entities.User;
 
 @SpringBootApplication
@@ -10,16 +11,23 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StoreApplication.class, args);
-		var user = new User(1L, "John", "john@gmail.com", "123456");
-		System.out.println(user);
 		
-		var anotherUser = User.builder()
+		var user = User.builder()
 		    .id(2L)
 			.name("Yogendra")
 			.email("yt@gmail.com")
 			.password("123456")
 			.build();
-		System.out.println(anotherUser);
+
+		var address = Address.builder()
+		    .id(1L)
+			.street("123 Main St")
+			.city("New York")
+			.zip("10001")
+			.build();
+		user.addAddress(address);
+
+		System.out.println(user);
 		
 	}
 
