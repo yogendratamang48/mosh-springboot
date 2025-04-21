@@ -61,3 +61,7 @@ spring:
     hibernate:
       ddl-auto: create
 ```
+## Repositories
+- Repositories -> Crud, PagingAndSorting, Jpa
+- Create a package repositories and create custom repos there.
+- Extend from existing repos.

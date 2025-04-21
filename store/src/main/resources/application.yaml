@@ -6,10 +6,5 @@ spring:
     url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
     username: root
     password: AppleIsBall2
-stripe:
-  apiUrl: https://api.stripe.com
-  enabled: true
-  timeout-ms: 6000
-  supported-currencies: USD,EUR,GBP
-payment:
-  method: paypal
+  jpa:
+    show-sql: true
