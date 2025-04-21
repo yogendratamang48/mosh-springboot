@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.ytamang.store.entities.Address;
+import com.ytamang.store.entities.Tag;
 import com.ytamang.store.entities.User;
 
 @SpringBootApplication
@@ -19,14 +20,7 @@ public class StoreApplication {
 			.password("123456")
 			.build();
 
-		var address = Address.builder()
-		    .id(1L)
-			.street("123 Main St")
-			.city("New York")
-			.zip("10001")
-			.build();
-		user.addAddress(address);
-
+		user.addTag("tag1");
 		System.out.println(user);
 		
 	}
