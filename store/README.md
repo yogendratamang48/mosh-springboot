@@ -35,3 +35,19 @@ orderService.placeOrder();
 ### Bean lifecycle hooks
 - `@PostConstruct`
 - `@PreDestroy`
+
+# Databases
+- Database migration with flyway
+
+## Create Domain models
+- @Entity to create models
+- getters, setters, constructors can be simplified using Lombok
+- @Builder pattern
+- Tag @Entity with @Builder
+```java
+var user = User.builder()
+    .name("John")
+    .email("john@gmail.com")
+    .password("123456")
+    .build();
+```
