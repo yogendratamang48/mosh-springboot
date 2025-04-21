@@ -17,12 +17,9 @@ public class StoreApplication {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 		var repository = context.getBean(UserRepository.class);
 
-		var user = User.builder()
-			.name("John")
-			.email("john@gmail.com")
-			.password("123456")
-			.build();
-		repository.save(user);
+		var user =  repository.findById(1L).orElseThrow();
+		System.out.println(user.getEmail());
+		repository.deleteById(1L);
 
 		
 	}
