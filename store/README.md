@@ -51,3 +51,17 @@ var user = User.builder()
     .password("123456")
     .build();
 ```
+- Use JPA to create entities from Database. Make sure to cleanup unnecessary stuffs.
+- Create Flyway migration wherever possible.
+## Generating DB with Hibernate
+- Not recommended for production.
+```yaml
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+```
+## Repositories
+- Repositories -> Crud, PagingAndSorting, Jpa
+- Create a package repositories and create custom repos there.
+- Extend from existing repos.
