@@ -3,6 +3,7 @@ package com.ytamang.store.services;
 import com.ytamang.store.entities.User;
 import com.ytamang.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,8 @@ public class UserService {
     private final EntityManager entityManager;
 
 
-    public void showEntityStates(){
+    @Transactional
+    public void showEntityStates() {
         var user = User.builder()
                 .name("Yogendra Tamang")
                 .email("48yogen@gmail.com")
