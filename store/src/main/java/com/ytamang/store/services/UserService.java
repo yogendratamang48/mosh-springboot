@@ -1,6 +1,7 @@
 package com.ytamang.store.services;
 
 import com.ytamang.store.entities.User;
+import com.ytamang.store.repositories.AddressRepository;
 import com.ytamang.store.repositories.ProfileRepository;
 import com.ytamang.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
+    private final AddressRepository addressRepository;
     private final EntityManager entityManager;
 
 
@@ -41,6 +43,11 @@ public class UserService {
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getBio());
         System.out.println(profile.getUser().getProfile());
+    }
+
+    public void showAddress(){
+        var address = addressRepository.findById(1L).orElseThrow();
+        System.out.println(address.getStreet());
     }
 
 }
