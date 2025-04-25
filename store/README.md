@@ -65,3 +65,6 @@ spring:
 - Repositories -> Crud, PagingAndSorting, Jpa
 - Create a package repositories and create custom repos there.
 - Extend from existing repos.
+## Fetching Strategies
+- Eager loading and Lazy loading
+- 
