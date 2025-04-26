@@ -1,5 +1,6 @@
 package com.ytamang.store.services;
 
+import com.ytamang.store.entities.Address;
 import com.ytamang.store.entities.User;
 import com.ytamang.store.repositories.AddressRepository;
 import com.ytamang.store.repositories.ProfileRepository;
@@ -50,4 +51,28 @@ public class UserService {
         System.out.println(address.getStreet());
     }
 
+    public void persistRelated() {
+        var user = User.builder()
+                .name("Srijana")
+                .email("s@abc.com")
+                .password("password123#")
+                .build();
+
+        var address = Address.builder()
+                .street("Konsul-Schmidt")
+                .zip("28205")
+                .city("Bremen")
+                .state("Bremen")
+                .build();
+        user.addAddress(address);
+        userRepository.save(user);
+    }
+
+    @Transactional
+    public void deleteRelated() {
+        var user = userRepository.findById(11L).orElseThrow();
+        var address = user.getAddresses().getFirst();
+        user.removeAddress(address);
+        userRepository.save(user);
+    }
 }
