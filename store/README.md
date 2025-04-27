@@ -94,3 +94,19 @@ public void persistRelated() {
 ```
 
 ## Deleting related entities
+## Query by example
+```java
+@Transactional
+public void fetchProducts(){
+    var product = new Product();
+    product.setName("frying");
+    var matcher = ExampleMatcher.matching()
+            .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+    var example = Example.of(product, matcher);
+
+    var products = productRepository.findAll(example);
+    products.forEach(System.out::println);
+
+
+}
+```

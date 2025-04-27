@@ -17,6 +17,7 @@ import lombok.*;
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Product {
     @Id
     @Column(name = "id")
@@ -31,6 +32,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @ToString.Exclude
     private Category category;
 
 }
