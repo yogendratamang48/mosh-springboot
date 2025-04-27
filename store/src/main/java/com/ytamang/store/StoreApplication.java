@@ -1,5 +1,6 @@
 package com.ytamang.store;
 
+import com.ytamang.store.services.ProductService;
 import com.ytamang.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,8 +13,11 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var service = context.getBean(UserService.class);
-        service.deleteRelated();
+
+//        var service = context.getBean(UserService.class);
+//        service.deleteRelated();
+        var productService = context.getBean(ProductService.class);
+        productService.createProductUnderCategory();
 
     }
 
