@@ -67,4 +67,30 @@ spring:
 - Extend from existing repos.
 ## Fetching Strategies
 - Eager loading and Lazy loading
-- 
+
+## Persisting related entities
+- Use `cascade = CascadeType.PERSIST`
+```java
+public void persistRelated() {
+    var user = User.builder()
+            .name("ABC")
+            .email("s@abc.com")
+            .password("password123#")
+            .build();
+
+    var address = Address.builder()
+            .street("Konsul-Schmidt")
+            .zip("28205")
+            .city("Hamburg")
+            .state("Hamburg")
+            .build();
+    // Option 1
+    user.addAddress(address); // This alone does not save to address table.
+    addressRepository.save(user);
+    
+    // Option 2 - Use `cascade = CascadeType.PERSIST` and get rid of `addressRepository.save(user);`
+    
+}
+```
+
+## Deleting related entities
