@@ -8,9 +8,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
+@Builder
+@Getter
+@Setter
 @Table(name = "products")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @Column(name = "id")
@@ -19,9 +25,6 @@ public class Product {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "description")
-    private String description;
 
     @Column(name = "price")
     private Double price;

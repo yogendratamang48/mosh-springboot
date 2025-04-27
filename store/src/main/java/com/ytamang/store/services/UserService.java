@@ -3,6 +3,7 @@ package com.ytamang.store.services;
 import com.ytamang.store.entities.Address;
 import com.ytamang.store.entities.User;
 import com.ytamang.store.repositories.AddressRepository;
+import com.ytamang.store.repositories.ProductRepository;
 import com.ytamang.store.repositories.ProfileRepository;
 import com.ytamang.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -17,6 +18,7 @@ public class UserService {
     private final ProfileRepository profileRepository;
     private final AddressRepository addressRepository;
     private final EntityManager entityManager;
+    private final ProductRepository productRepository;
 
 
     @Transactional
