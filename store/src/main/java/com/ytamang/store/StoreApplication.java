@@ -19,8 +19,8 @@ public class StoreApplication {
         var productService = context.getBean(ProductService.class);
 //        productService.createProductAndCategory();
 //        productService.createProductUnderCategory();
-        productService.addToWishlist();
-
+//        productService.addToWishlist();
+        productService.deleteProduct();
     }
 
 }

@@ -63,4 +63,10 @@ public class ProductService {
         userRepository.save(user);
     }
 
+    @Transactional
+    public void deleteProduct(){
+        System.out.println("Deleting product");
+        productRepository.deleteById(1L);
+    }
+
 }
