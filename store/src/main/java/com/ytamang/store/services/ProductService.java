@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 @AllArgsConstructor
 public class ProductService {
@@ -67,6 +69,10 @@ public class ProductService {
     public void deleteProduct(){
         System.out.println("Deleting product");
         productRepository.deleteById(1L);
+    }
+    @Transactional
+    public void updateProductPrices(){
+        productRepository.updatePriceByCategory(BigDecimal.valueOf(10), (byte)(3));
     }
 
 }

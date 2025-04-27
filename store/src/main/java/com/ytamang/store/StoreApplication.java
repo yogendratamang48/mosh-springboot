@@ -16,11 +16,11 @@ public class StoreApplication {
 
 //        var service = context.getBean(UserService.class);
 //        service.deleteRelated();
-        var userService = context.getBean(UserService.class);
+        var productService = context.getBean(ProductService.class);
 //        productService.createProductAndCategory();
 //        productService.createProductUnderCategory();
 //        productService.addToWishlist();
-        userService.fetchProducts();
+        productService.updateProductPrices();
     }
 
 }
