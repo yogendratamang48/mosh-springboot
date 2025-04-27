@@ -17,7 +17,9 @@ public class StoreApplication {
 //        var service = context.getBean(UserService.class);
 //        service.deleteRelated();
         var productService = context.getBean(ProductService.class);
-        productService.createProductUnderCategory();
+//        productService.createProductAndCategory();
+//        productService.createProductUnderCategory();
+        productService.addToWishlist();
 
     }
 

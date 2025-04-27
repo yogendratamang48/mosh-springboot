@@ -4,6 +4,7 @@ import com.ytamang.store.entities.Category;
 import com.ytamang.store.entities.Product;
 import com.ytamang.store.repositories.ProductRepository;
 import com.ytamang.store.repositories.CategoryRepository;
+import com.ytamang.store.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
     public void createCategory(){
         var category = Category.builder()
@@ -31,12 +33,12 @@ public class ProductService {
     @Transactional
     public void createProductAndCategory(){
         var category = Category.builder()
-                .name("Electronics")
+                .name("Furniture")
                 .build();
         categoryRepository.save(category);
         var product = Product.builder()
-                .name("Headphones - ZYCV")
-                .price(100.00)
+                .name("Armchair - ZYCV")
+                .price(55.00)
                 .build();
         product.setCategory(category);
         productRepository.save(product);
@@ -51,7 +53,14 @@ public class ProductService {
                 .build();
         product.setCategory(category);
         productRepository.save(product);
+    }
 
+    @Transactional
+    public void addToWishlist() {
+        var user = userRepository.findById(1L).orElseThrow();
+        var product = productRepository.findById(1L).orElseThrow();
+        user.getWishlist().add(product);
+        userRepository.save(user);
     }
 
 }
