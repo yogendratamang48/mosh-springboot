@@ -1,5 +1,7 @@
 package com.ytamang.store.repositories;
 
+import com.ytamang.store.dtos.ProductSummary;
+import com.ytamang.store.entities.Category;
 import com.ytamang.store.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -26,5 +28,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Modifying
     @Query("update Product p set p.price=:newPrice where p.category.id=:categoryId")
     void updatePriceByCategory(@Param("newPrice") BigDecimal newPrice, @Param("categoryId") Byte categoryId);
+
+    List<ProductSummary> findByCategory(Category category);
+
 
 }

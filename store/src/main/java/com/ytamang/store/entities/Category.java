@@ -23,11 +23,15 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private byte id;
 
     @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "category")
     private Set<Product> products = new HashSet<>();
+
+    public Category(byte id) {
+        this.id = id;
+    }
 }
