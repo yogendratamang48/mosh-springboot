@@ -20,7 +20,8 @@ public class StoreApplication {
 //        productService.createProductAndCategory();
 //        productService.createProductUnderCategory();
 //        productService.addToWishlist();
-        productService.deleteProduct();
+//        productService.updateProductPrices();
+        productService.fetchProducts();
     }
 
 }

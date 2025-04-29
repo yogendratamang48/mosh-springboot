@@ -17,11 +17,12 @@ import lombok.*;
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Product {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Byte id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -31,6 +32,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @ToString.Exclude
     private Category category;
 
 }

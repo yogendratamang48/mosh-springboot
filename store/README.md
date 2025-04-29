@@ -94,3 +94,55 @@ public void persistRelated() {
 ```
 
 ## Deleting related entities
+## Query by example
+```java
+@Transactional
+public void fetchProducts(){
+    var product = new Product();
+    product.setName("frying");
+    var matcher = ExampleMatcher.matching()
+            .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+    var example = Example.of(product, matcher);
+
+    var products = productRepository.findAll(example);
+    products.forEach(System.out::println);
+
+
+}
+```
+
+### Custom Queries
+
+```java
+import com.ytamang.store.entities.Product;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.math.BigDecimal;
+
+// Find products whose prices are between given range and sort by name
+
+//SQL or JPL
+@Query(value = "Select * from products p where p.price between :min and :max order by p.name", nativeQuery = true)
+List<Product> findProducts(@Param("min") BigDecimal min, @Param("max") BigDecimal max) {
+
+}
+```
+
+```java
+import com.ytamang.store.entities.Product;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.math.BigDecimal;
+
+// Find products whose prices are between given range and sort by name
+
+//SQL or JPL
+@Query("Select p from Product p where p.price between :min and :max order by p.name")
+List<Product> findProducts(@Param("min") BigDecimal min, @Param("max") BigDecimal max) {
+
+}
+```
+## Projections
+
