@@ -8,6 +8,7 @@ import jakarta.persistence.MapKeyEnumerated;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByNameEndingWith(String name);
     List<Product> findByNameEndingWithIgnoreCase(String name);
 
-    @Query("select p from Product p where p.price between :min and :max order by p.name")
+    @Procedure("findProductsByPrice")
     List<Product> findProducts(BigDecimal min, BigDecimal max);
 
     @Modifying
