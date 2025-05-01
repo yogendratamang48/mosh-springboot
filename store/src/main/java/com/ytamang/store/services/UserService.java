@@ -103,8 +103,10 @@ public class UserService {
         System.out.println(user.getId());
     }
 
+    @Transactional
     public void findProfiles(){
         var profiles = profileRepository.findProfileByLoyaltyPointsGreaterThan(2);
         profiles.forEach((Profile p) -> System.out.println(p.getId()));
+        profiles.forEach((Profile p) -> System.out.println(p.getUser().getEmail()));
     }
 }
