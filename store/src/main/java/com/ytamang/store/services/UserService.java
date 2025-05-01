@@ -94,4 +94,11 @@ public class UserService {
         user.removeAddress(address);
         userRepository.save(user);
     }
+
+
+//    @Transactional
+    public void fetchUser() {
+        var user = userRepository.findByEmail("apple@guru.com").orElseThrow();
+        System.out.println(user.getId());
+    }
 }

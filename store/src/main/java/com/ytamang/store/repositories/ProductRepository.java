@@ -33,6 +33,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("select new com.ytamang.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category=:category")
     List<ProductSummaryDTO> findByCategory(@Param("category") Category category);
-
-
 }
