@@ -14,14 +14,14 @@ public class StoreApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
-        var userService = context.getBean(UserService.class);
-        userService.fetchUser();
-//        var productService = context.getBean(ProductService.class);
+//        var userService = context.getBean(UserService.class);
+//        userService.fetchUser();
+        var productService = context.getBean(ProductService.class);
 //        productService.createProductAndCategory();
 //        productService.createProductUnderCategory();
 //        productService.addToWishlist();
 //        productService.updateProductPrices();
-//        productService.fetchProducts();
+        productService.fetchProducts();
     }
 
 }
