@@ -145,4 +145,27 @@ List<Product> findProducts(@Param("min") BigDecimal min, @Param("max") BigDecima
 }
 ```
 ## Projections
+- Use DTOs
+```java
+// dtos/ProductSummaryDTO.java
+
+@Getter
+@AllArgsConstructor
+public class ProductSummaryDTO {
+    private Long id;
+    private String name;
+
+}
+
+// repository/ProductRepository
+@Query("select new com.ytamang.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category=:category")
+List<ProductSummaryDTO> findByCategory(@Param("category") Category category);
+```
+## Entity Graph
+- one to many and many to one, by default uses Lazy loading
+- One way to fetch would be to update fetch strategy to EAGER
+- Entity graph allows us to load eagerly for a particular query
+- N+1 problem because of lazy loading
+## Stored procedures
+
 
