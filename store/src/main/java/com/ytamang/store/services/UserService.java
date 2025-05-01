@@ -2,6 +2,7 @@ package com.ytamang.store.services;
 
 import com.ytamang.store.entities.Address;
 import com.ytamang.store.entities.Product;
+import com.ytamang.store.entities.Profile;
 import com.ytamang.store.entities.User;
 import com.ytamang.store.repositories.AddressRepository;
 import com.ytamang.store.repositories.ProductRepository;
@@ -100,5 +101,10 @@ public class UserService {
     public void fetchUser() {
         var user = userRepository.findByEmail("apple@guru.com").orElseThrow();
         System.out.println(user.getId());
+    }
+
+    public void findProfiles(){
+        var profiles = profileRepository.findProfileByLoyaltyPointsGreaterThan(2);
+        profiles.forEach((Profile p) -> System.out.println(p.getId()));
     }
 }
