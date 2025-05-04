@@ -1,5 +1,6 @@
 package com.ytamang.store.services;
 
+import com.ytamang.store.dtos.UserSummaryDTO;
 import com.ytamang.store.entities.Address;
 import com.ytamang.store.entities.Product;
 import com.ytamang.store.entities.Profile;
@@ -105,7 +106,7 @@ public class UserService {
 
     @Transactional
     public void findProfiles(){
-        var profiles = profileRepository.findProfileByLoyaltyPointsGreaterThan(2);
+        var profiles = profileRepository.findProfileByLoyaltyPointsGreaterThanOrderByUserEmail(2);
         profiles.forEach((Profile p) -> System.out.println(p.getId()));
         profiles.forEach((Profile p) -> System.out.println(p.getUser().getEmail()));
     }

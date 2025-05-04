@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long>, ProductCriteriaRepository {
     List<Product> findByName(String name);
     List<Product> findByNameNotLike(String name);
 
@@ -24,9 +24,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByNameStartingWith(String name);
     List<Product> findByNameEndingWith(String name);
     List<Product> findByNameEndingWithIgnoreCase(String name);
-
-    @Procedure("findProductsByPrice")
-    List<Product> findProducts(BigDecimal min, BigDecimal max);
 
     @Modifying
     @Query("update Product p set p.price=:newPrice where p.category.id=:categoryId")
